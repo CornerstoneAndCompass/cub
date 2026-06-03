@@ -118,3 +118,26 @@
     }, 900);
   });
 })();
+
+/* member stories: Interviews / Podcast toggle */
+(function () {
+  var seg = document.querySelector('.seg[aria-label="Member stories"]');
+  if (!seg) return;
+  var section = seg.closest('section');
+  seg.addEventListener('click', function (e) {
+    var btn = e.target.closest('.seg-btn');
+    if (!btn) return;
+    var tab = btn.getAttribute('data-tab');
+    seg.querySelectorAll('.seg-btn').forEach(function (b) {
+      var on = b === btn;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    section.querySelectorAll('[data-panel]').forEach(function (p) {
+      p.hidden = p.getAttribute('data-panel') !== tab;
+    });
+    section.querySelectorAll('[data-more]').forEach(function (m) {
+      m.hidden = m.getAttribute('data-more') !== tab;
+    });
+  });
+})();
