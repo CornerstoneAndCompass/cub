@@ -560,12 +560,12 @@ a.member{text-decoration:none}
 .logos img:hover{opacity:1}
 
 /* photo gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(8px,1vw,14px)}
-.gallery figure{overflow:hidden;aspect-ratio:3/2;background:var(--ink)}
-.gallery figure.wide{grid-column:span 2}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vw,14px)}
+.gallery figure{margin:0;overflow:hidden;aspect-ratio:3/2;background:var(--ink)}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .gallery figure:hover img{transform:scale(1.05)}
-@media(max-width:680px){.gallery figure.wide{grid-column:span 1}}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.gallery{grid-template-columns:1fr}}
 
 /* awards list */
 .awardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
